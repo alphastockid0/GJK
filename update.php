@@ -1,7 +1,7 @@
 <?php
 cd
-$remote = "git remote add github https://github.com/alphastockid0/GJK.git";
-  $remote;
+$remote = "https://github.com/alphastockid0/GJK.git";
+echo  "git remote add github $remote";
   if ($remote==false){
     goto nextt;
   } else{
