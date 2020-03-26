@@ -28,16 +28,15 @@ function change(){
         $uuid = getStr('"resource_owner_id":',',',$verif);
         echo "\n".color("yellow","+] Your access token : ".$token."\n\n");
         save("token.txt",$token);
-        echo "\n".color("nevy","?] Mau Redeem Voucher?: y/n ");
-        $pilihan = trim(fgets(STDIN));
-        if($pilihan == "y" || $pilihan == "Y"){
+//         echo "\n".color("nevy","?] Mau Redeem Voucher?: y/n ");
+//         $pilihan = trim(fgets(STDIN));
+//         if($pilihan == "y" || $pilihan == "Y"){
         echo color("red","===========(REDEEM VOUCHER)===========");
         echo "\n".color("yellow","!] Claim voc HEPIBOEDJANGAN");
         echo "\n".color("yellow","!] tunggu um");
         for($a=1;$a<=3;$a++){
         echo color("yellow",".");
-        sleep(3);
-        }
+//         sleep(3);
         $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"HEPIBOEDJANGAN"}');
         $message = fetch_value($code1,'"message":"','"');
         if(strpos($code1, 'Promo kamu sudah bisa dipakai pak')){
@@ -50,7 +49,7 @@ function change(){
         echo "\n".color("yellow","!] tunggu um");
         for($a=1;$a<=3;$a++){
         echo color("yellow",".");
-        sleep(20);
+        sleep(2);
         }
         $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD090320A"}');
         $message = fetch_value($code1,'"message":"','"');
@@ -146,4 +145,6 @@ function change(){
   }
  }
 }
-echo change()."\n"; ?>
+echo change()."\n";
+goto ulang;
+?>
