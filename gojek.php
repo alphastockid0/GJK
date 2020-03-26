@@ -35,94 +35,98 @@ if ($register == false)
         echo "\e[93m[!] Trying to redeem Voucher : COBAGOFOOD090320A !\n";
         sleep(3);
         $claim = claim($verif);
-        // if ($claim == false)
-        //     {
-        //     echo "\e[92m[!]".$voucher."\n";
-        //     sleep(3);
-        //     echo "\e[93m[!] Trying to redeem Voucher : G-9QNT9FW !\n";
-        //     sleep(3);
-        //     goto next;
-        //     }
-        //     else{
-        //         echo "\e[92m[+] ".$claim."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
-        //         sleep(3);
-        //         goto ride;
-        //     }
-        //     next:
-        //     $claim = claim1($verif);
-        //     if ($claim == false) {
-        //         echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : G-4F35Z7D !\n";
-        //         sleep(3);
-        //         goto next1;
-        //     }
-        //     else{
-        //         echo "\e[92m[+] ".$claim."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
-        //         sleep(3);
-        //         goto ride;
-        //     }
-        //     next1:
-        //     $claim = claim2($verif);
-        //     if ($claim == false) {
-        //         echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : GOFOODSANTAI08 !\n";
-        //         sleep(3);
-        //         goto next2;
-        //     }
-        //     else{
-        //         echo "\e[92m[+] ".$claim."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
-        //         sleep(3);
-        //         goto ride;
-        //     }
-        //     next2:
-        //     $claim = claim3($verif);
-        //     if ($claim == false) {
-        //         echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
-        //         sleep(3);
-        //         goto ride;
-        //     }
-        //   else
-        //     {
-        //     echo "\e[92m[+] ".$claim . "\n";
-        //     sleep(3);
-        //     echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
-        //     sleep(3);
-        //     goto ride;
-        //     }
-        //     ride:
-        //     $claim = ride($verif);
-        //     if ($claim == false ) {
-        //         echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
-        //         sleep(3);
-        //     }
-        //     else{
-        //         echo "\e[92m[+] ".$claim."\n";
-        //         sleep(3);
-        //         echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
-        //         sleep(3);
-        //         goto pengen;
-        //     }
-        //     pengen:
-        //     $claim = cekvocer($verif);
-        //     if ($claim == false ) {
-        //         echo "\033VOUCHER INVALID/GAGAL REDEEM\n";
-        //     }
-        //     else{
-        //         echo "\e[92m[+] ".$claim."\n";
+        if ($claim == false)
+            {
+            echo "\e[92m[!]".$voucher."\n";
+            sleep(3);
+            echo "\e[93m[!] Trying to redeem Voucher : G-9QNT9FW !\n";
+            sleep(3);
+            goto next0;
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
+                sleep(3);
+                goto ride;
+            }
+            ride:
+            $claim = ride($verif);
+            if ($claim == false ) {
+                echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
+                sleep(3);
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
+                sleep(3);
+                goto pengen;
+            }
+            pengen:
+            $claim = cekvocer($verif);
+            if ($claim == false ) {
+                echo "\033VOUCHER INVALID/GAGAL REDEEM\n";
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                goto ulang
+            }
                 
-        // }
+            next0:
+            $claim = claim1($verif);
+            if ($claim == false) {
+                echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : G-4F35Z7D !\n";
+                sleep(3);
+                goto next1;
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
+                sleep(3);
+                goto ride;
+            }
+            next1:
+            $claim = claim2($verif);
+            if ($claim == false) {
+                echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : GOFOODSANTAI08 !\n";
+                sleep(3);
+                goto next2;
+            }
+            else{
+                echo "\e[92m[+] ".$claim."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
+                sleep(3);
+                goto ride;
+            }
+            next2:
+            $claim = claim3($verif);
+            if ($claim == false) {
+                echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
+                sleep(3);
+                echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
+                sleep(3);
+                goto ride;
+            }
+          else
+            {
+            echo "\e[92m[+] ".$claim . "\n";
+            sleep(3);
+            echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
+            sleep(3);
+            goto ride;
+            }
+          
+                
+        
     }
     }
 ?>
