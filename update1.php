@@ -126,11 +126,11 @@ function change(){
                 //                          else if($pilih1 == "n" || $pilih1 == "N"){
                 //                                  die();}
                 //                               else{ echo color("red","-] GAGAL!!!\n");}
-                }
+               // }
          }
          }
          }
-                else{goto setpin;}
+                else {goto setpin;}
                 
          }
             else{
