@@ -126,11 +126,12 @@ function change(){
          }else{
          goto setpin;
          }
-         }else{
+         }else{for($i=0,i<3,i++){
          echo color("red","-] Otp yang anda input salah");
          echo"\n==================================\n\n";
          echo color("yellow","!] Silahkan input kembali\n");
-         goto otp;
+         goto otp;}
+               goto ulang;
          }
          }else{
          echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
