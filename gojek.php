@@ -11,6 +11,7 @@ echo "\e[93m SCRIPT GOJEK AUTO REGISTER + AUTO CLAIM VOUCHER\n";
 echo "\e[93m SCRIPT : Dede Permana\n";
 echo "\e[93m Github: permanaloremIpsum \n";
 echo "\n";
+ulang:
 echo "\e[96m[?] Masukkan Nomor HP Anda (62/1) : ";
 $nope = trim(fgets(STDIN));
 $register = register($nope);
