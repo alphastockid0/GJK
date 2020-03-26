@@ -103,10 +103,10 @@ function change(){
         $expired5 = getStr1('"expiry_date":"','"',$cekvoucher,'5');
         $expired6 = getStr1('"expiry_date":"','"',$cekvoucher,'6');
          setpin:
-         echo "\n".color("nevy","?] Mau set pin?: y/n ");
-         $pilih1 = trim(fgets(STDIN));
-         if($pilih1 == "y" || $pilih1 == "Y"){
-         //if($pilih1 == "y" && strpos($no, "628")){
+//          echo "\n".color("nevy","?] Mau set pin?: y/n ");
+//          $pilih1 = trim(fgets(STDIN));
+//          if($pilih1 == "y" || $pilih1 == "Y"){
+//          if($pilih1 == "y" && strpos($no, "628")){
          echo color("red","========( PIN ANDA = 121212 )========")."\n";
          $data2 = '{"pin":"121212"}';
          $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
@@ -114,11 +114,12 @@ function change(){
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
          echo $verifotpsetpin;
-         }else if($pilih1 == "n" || $pilih1 == "N"){
-         die();
-         }else{
-         echo color("red","-] GAGAL!!!\n");
-         }
+//          }
+//                  else if($pilih1 == "n" || $pilih1 == "N"){
+//          die();
+//          }else{
+//          echo color("red","-] GAGAL!!!\n");
+//          }
          }
          }
          }
