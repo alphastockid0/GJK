@@ -21,13 +21,13 @@ if ($register == false)
   else
     {
     otp:
+     
     echo "\e[96m[!] Masukkan Kode Verifikasi (OTP) : ";
     $otp = trim(fgets(STDIN));
     $verif = verif($otp, $register);
     if ($verif == false)
-        {
-        echo "\e[91m[x] Kode Verifikasi Salah\n";
-        goto otp;
+        { for ($i = 0; $i < 3; $i++){echo "\e[91m[x] Kode Verifikasi Salah\n";
+        goto otp; }
         }
       else
         {
@@ -36,20 +36,18 @@ if ($register == false)
         sleep(3);
         $claim = claim($verif);
         if ($claim == false)
-            {
+            { for ($i = 0; $i < 3; $i++){
             echo "\e[92m[!]".$voucher."\n";
             sleep(3);
             echo "\e[93m[!] Trying to redeem Voucher : G-9QNT9FW !\n";
-            sleep(3);
-            goto next0;
+            sleep(3);}
             }
-            else{
+            else{for ($i = 0; $i < 3; $i++){
                 echo "\e[92m[+] ".$claim."\n";
                 sleep(3);
                 echo "\e[93m[!] Trying to redeem Voucher : COBAINGOJEK !\n";
-                sleep(3);
-                goto ride;
-            }
+                sleep(3);}            
+                }
             ride:
             $claim = ride($verif);
             if ($claim == false ) {
@@ -58,13 +56,12 @@ if ($register == false)
                 echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
                 sleep(3);
             }
-            else{
+            else{for ($i = 0; $i < 3; $i++){
                 echo "\e[92m[+] ".$claim."\n";
                 sleep(3);
                 echo "\e[93m[!] Trying to redeem Voucher : AYOCOBAGOJEK !\n";
-                sleep(3);
-                goto pengen;
-            }
+                sleep(3);}    
+                }
             pengen:
             $claim = cekvocer($verif);
             if ($claim == false ) {
@@ -72,10 +69,8 @@ if ($register == false)
             }
             else{
                 echo "\e[92m[+] ".$claim."\n";
-                goto ulang
             }
                 
-            next0:
             $claim = claim1($verif);
             if ($claim == false) {
                 echo "\e[92m[!]".$claim['errors'][0]['message']."\n";
@@ -126,7 +121,7 @@ if ($register == false)
             }
           
                 
-        
+goto ulang;        
     }
     }
 ?>
