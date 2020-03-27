@@ -1,5 +1,4 @@
 <?php
-clear
 date_default_timezone_set('Asia/Jakarta');
 include "function.php";
 echo color("green","# # # # # # # # # # # # # # # # # # # # # # # \n");
@@ -133,7 +132,7 @@ function change(){
          echo color("yellow","!] Silahkan input kembali\n");
          goto otp;
          }
-         }else{
+         }else{for ($i=0;$i<3;$i++){
          echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
          echo "\nMau ulang? (y/n): ";
          $pilih = trim(fgets(STDIN));
@@ -142,7 +141,8 @@ function change(){
          goto ulang;
          }else{
          echo "\n==============Register==============\n";
-         goto ulang;
+         goto ulang;}
+                die ();
   }
  }
 }
