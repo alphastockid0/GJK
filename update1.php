@@ -138,11 +138,11 @@ function change(){
          $pilih = trim(fgets(STDIN));
          if($pilih == "y" || $pilih == "Y"){
          echo "\n==============Register==============\n";
-         goto ulang;
          }else{
          echo "\n==============Register==============\n";
-         goto ulang;}
-                die ();
+                die ();}
+         goto ulang;
+                
   }
  }
 }
