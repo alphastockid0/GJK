@@ -140,10 +140,11 @@ function change(){
          echo "\n==============Register==============\n";
          }else{
          echo "\n==============Register==============\n";
-                die ();}
-         goto ulang;
+                ;}
+                die ()
+                goto ulang;
                 
   }
- }
+ }goto ulang;
 }
 echo change()."\n"; ?>
