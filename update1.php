@@ -21,7 +21,23 @@ function change(){
         echo color("nevy","?] Otp: ");
         $otp = trim(fgets(STDIN));
         $data1 = '{"client_name":"gojek:cons:android","data":{"otp":"' . $otp . '","otp_token":"' . $otptoken . '"},"client_secret":"83415d06-ec4e-11e6-a41b-6c40088ab51e"}';
-        $verif = request("/v5/customers/phone/verify", null, $data1);
+        $verif = request("/v5/customers/phone/verify", null, $data1);}else{
+         echo color("red","-] Otp yang anda input salah");
+         echo"\n==================================\n\n";
+         echo color("yellow","!] Silahkan input kembali\n");
+         goto otp;
+         }
+         else{
+			         echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
+			         echo "\nMau ulang? (y/n): ";
+			         $pilih = trim(fgets(STDIN));
+			         if($pilih == "y" || $pilih == "Y"){
+				         echo "\n==============Register==============\n";
+				         goto ulang;}
+				     else{
+					     echo "\n==============Register==============\n";
+					     goto ulang;}
+				 }
         if(strpos($verif, '"access_token"')){
         echo color("green","+] Berhasil mendaftar");
         $token = getStr('"access_token":"','"',$verif);
@@ -127,23 +143,6 @@ function change(){
          }
 
          
-         }else{
-         echo color("red","-] Otp yang anda input salah");
-         echo"\n==================================\n\n";
-         echo color("yellow","!] Silahkan input kembali\n");
-         goto otp;
-         }
          
-				 }
-}else{
-			         echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
-			         echo "\nMau ulang? (y/n): ";
-			         $pilih = trim(fgets(STDIN));
-			         if($pilih == "y" || $pilih == "Y"){
-				         echo "\n==============Register==============\n";
-				         goto ulang;}
-				     else{
-					     echo "\n==============Register==============\n";
-					     goto ulang;}
 }
 echo change()."\n"; ?>
