@@ -142,8 +142,8 @@ function change(){
          }else{
          echo "\n==============Register==============\n";
                 ;}
-                die ();
-                      
+//                 die ();
+                 goto ulang;     
   }
  }
 }
