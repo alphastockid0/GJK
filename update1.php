@@ -79,53 +79,54 @@ function change(){
         $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"G-CSPCZKC"}');
         $message = fetch_value($code1,'"message":"','"');
         if(strpos($code1, 'Promo kamu sudah bisa dipakai pak')){
-        echo "\n".color("green","+] Message: ".$message);
-        sleep(1);
-        sleep(3);
-        $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=10&page=1', $token);
-        $total = fetch_value($cekvoucher,'"total_vouchers":',',');
-        $voucher3 = getStr1('"title":"','",',$cekvoucher,"3");
-        $voucher1 = getStr1('"title":"','",',$cekvoucher,"1");
-        $voucher2 = getStr1('"title":"','",',$cekvoucher,"2");
-        $voucher4 = getStr1('"title":"','",',$cekvoucher,"4");
-        $voucher5 = getStr1('"title":"','",',$cekvoucher,"5");
-        $voucher6 = getStr1('"title":"','",',$cekvoucher,"6");
-        echo "\n".color("yellow","!] Total voucher ".$total." : ");
-        echo color("green","1. ".$voucher1);
-        echo "\n".color("green","                     2. ".$voucher2);
-        echo "\n".color("green","                     3. ".$voucher3);
-        echo "\n".color("green","                     4. ".$voucher4);
-        echo "\n".color("green","                     5. ".$voucher5);
-        echo "\n".color("green","                     6. ".$voucher6);
-        $expired1 = getStr1('"expiry_date":"','"',$cekvoucher,'1');
-        $expired2 = getStr1('"expiry_date":"','"',$cekvoucher,'2');
-        $expired3 = getStr1('"expiry_date":"','"',$cekvoucher,'3');
-        $expired4 = getStr1('"expiry_date":"','"',$cekvoucher,'4');
-        $expired5 = getStr1('"expiry_date":"','"',$cekvoucher,'5');
-        $expired6 = getStr1('"expiry_date":"','"',$cekvoucher,'6');
-         setpin:
-         // echo "\n".color("nevy","?] Mau set pin?: y/n ");
-         // $pilih1 = trim(fgets(STDIN));
-         // if($pilih1 == "y" || $pilih1 == "Y"){
-         //if($pilih1 == "y" && strpos($no, "628")){
-         echo color("red","========( PIN ANDA = 121212 )========")."\n";
-         $data2 = '{"pin":"121212"}';
-         $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
-         echo "Otp set pin: ";
-         $otpsetpin = trim(fgets(STDIN));
-         $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
-         echo $verifotpsetpin;
-         // }else if($pilih1 == "n" || $pilih1 == "N"){
-         // die();
-         // }else{
-         // echo color("red","-] GAGAL!!!\n");
-         // }
+			        echo "\n".color("green","+] Message: ".$message);
+			        sleep(1);
+			        sleep(3);
+			        $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=10&page=1', $token);
+			        $total = fetch_value($cekvoucher,'"total_vouchers":',',');
+			        $voucher3 = getStr1('"title":"','",',$cekvoucher,"3");
+			        $voucher1 = getStr1('"title":"','",',$cekvoucher,"1");
+			        $voucher2 = getStr1('"title":"','",',$cekvoucher,"2");
+			        $voucher4 = getStr1('"title":"','",',$cekvoucher,"4");
+			        $voucher5 = getStr1('"title":"','",',$cekvoucher,"5");
+			        $voucher6 = getStr1('"title":"','",',$cekvoucher,"6");
+			        echo "\n".color("yellow","!] Total voucher ".$total." : ");
+			        echo color("green","1. ".$voucher1);
+			        echo "\n".color("green","                     2. ".$voucher2);
+			        echo "\n".color("green","                     3. ".$voucher3);
+			        echo "\n".color("green","                     4. ".$voucher4);
+			        echo "\n".color("green","                     5. ".$voucher5);
+			        echo "\n".color("green","                     6. ".$voucher6);
+			        $expired1 = getStr1('"expiry_date":"','"',$cekvoucher,'1');
+			        $expired2 = getStr1('"expiry_date":"','"',$cekvoucher,'2');
+			        $expired3 = getStr1('"expiry_date":"','"',$cekvoucher,'3');
+			        $expired4 = getStr1('"expiry_date":"','"',$cekvoucher,'4');
+			        $expired5 = getStr1('"expiry_date":"','"',$cekvoucher,'5');
+			        $expired6 = getStr1('"expiry_date":"','"',$cekvoucher,'6');
+			         setpin:
+			         // echo "\n".color("nevy","?] Mau set pin?: y/n ");
+			         // $pilih1 = trim(fgets(STDIN));
+			         // if($pilih1 == "y" || $pilih1 == "Y"){
+			         //if($pilih1 == "y" && strpos($no, "628")){
+			         echo color("red","========( PIN ANDA = 121212 )========")."\n";
+			         $data2 = '{"pin":"121212"}';
+			         $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
+			         echo "Otp set pin: ";
+			         $otpsetpin = trim(fgets(STDIN));
+			         $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
+			         echo $verifotpsetpin;
+			         // }else if($pilih1 == "n" || $pilih1 == "N"){
+			         // die();
+			         // }else{
+			         // echo color("red","-] GAGAL!!!\n");
+			         // }
+		         	}
+
+		         	else{goto setpin;}
          }
          }
-         }
-         if else{
-         goto setpin;
-         }
+
+         
          }if else{
          echo color("red","-] Otp yang anda input salah");
          echo"\n==================================\n\n";
