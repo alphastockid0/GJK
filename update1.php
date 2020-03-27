@@ -131,6 +131,7 @@ function change(){
          echo"\n==================================\n\n";
          echo color("yellow","!] Silahkan input kembali\n");
          goto otp;}
+               die();
          }
          }else{for ($i=0;$i<3;$i++){
          echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
@@ -141,10 +142,9 @@ function change(){
          }else{
          echo "\n==============Register==============\n";
                 ;}
-                die ()
-                goto ulang;
-                
+                die ();
+                      
   }
- }goto ulang;
+ }
 }
 echo change()."\n"; ?>
