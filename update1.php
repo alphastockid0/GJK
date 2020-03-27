@@ -133,7 +133,9 @@ function change(){
          echo color("yellow","!] Silahkan input kembali\n");
          goto otp;
          }
-         else{
+         
+				 }
+}else{
 			         echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
 			         echo "\nMau ulang? (y/n): ";
 			         $pilih = trim(fgets(STDIN));
@@ -143,6 +145,5 @@ function change(){
 				     else{
 					     echo "\n==============Register==============\n";
 					     goto ulang;}
-				 }
 }
 echo change()."\n"; ?>
